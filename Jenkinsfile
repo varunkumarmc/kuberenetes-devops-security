@@ -9,13 +9,13 @@ pipeline {
             }
         } 
 
-      stage('Unit Test') {
+      stage('Unit Test - junit and jacoco') {
             steps {
               sh "mvn test"
             }
             post {
               always {
-                junit 'target/surefire-report/*.xml'
+                junit 'target/surefire-reports/*.xml'
                 jacoco execPattern: 'target/jacoco.exec'
               }
             }
