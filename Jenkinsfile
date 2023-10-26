@@ -20,7 +20,7 @@ pipeline {
               }
             }
       }
-        stage('Docker build and push') {
+      stage('Docker build and push') {
             steps {
               script{
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'Docker') {
@@ -29,11 +29,11 @@ pipeline {
                         sh 'docker push varunkumarmc/numeric-app:""$GIT_COMMIT""'
                     }
               
-               }
               }
-           }
-        }
+            }
+      }
+  }
         
             
-  }
+
 }
